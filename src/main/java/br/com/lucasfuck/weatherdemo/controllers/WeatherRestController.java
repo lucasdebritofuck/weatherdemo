@@ -19,8 +19,7 @@ public class WeatherRestController {
 	private WeatherService weatherService;
 
 	@RequestMapping(value = "/weather/{cidade_id}", method = RequestMethod.GET)
-	public HourlyWeatherForecast getHourlyWeatherForecast(@PathVariable(value = "cidade_id") Long cidadeId,
-			Long weatherId) {
+	public HourlyWeatherForecast getHourlyWeatherForecast(@PathVariable(value = "cidade_id") Long cidadeId) {
 		return weatherService.getHourlyWeatherForecastByCidadeId(cidadeId);
 	}
 
