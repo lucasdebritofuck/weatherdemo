@@ -52,10 +52,8 @@ public class CidadeService {
 					.body(CIDADE_INVALIDA_API);
 		}
 
-		cidadeSave.setCep(cidadePut.getCep());
 		cidadeSave.setNome(cidadePut.getNome());
 		cidadeSave.setPais(cidadePut.getPais());
-		cidadeSave.setUf(cidadePut.getUf());
 		cidadeSave = cidadeRepository.saveAndFlush(cidadeSave);
 
 		return new ResponseEntity<Cidade>(cidadeSave, HttpStatus.OK);

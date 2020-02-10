@@ -2,6 +2,7 @@ package br.com.lucasfuck.weatherdemo.services;
 
 import java.util.Optional;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +10,7 @@ import br.com.lucasfuck.weatherdemo.entities.Cidade;
 import br.com.lucasfuck.weatherdemo.repositories.CidadeRepository;
 import net.aksingh.owmjapis.api.APIException;
 import net.aksingh.owmjapis.core.OWM;
+import net.aksingh.owmjapis.core.OWM.Country;
 import net.aksingh.owmjapis.core.OWM.Unit;
 import net.aksingh.owmjapis.model.CurrentWeather;
 import net.aksingh.owmjapis.model.HourlyWeatherForecast;
@@ -30,13 +32,32 @@ public class WeatherService {
 		openWeatherMap.setUnit(Unit.METRIC);
 
 		try {
-			CurrentWeather currentWeather = openWeatherMap.currentWeatherByCityName(cidade.getNome());
-			return currentWeather;
+			if (StringUtils.isNotBlank(cidade.getPais())) {
+				return openWeatherMap.currentWeatherByCityName(cidade.getNome(), convertePais(cidade.getPais()));
+			}
+
+			return openWeatherMap.currentWeatherByCityName(cidade.getNome());
 		} catch (APIException e) {
 			e.printStackTrace();
 		}
 
 		return null;
+	}
+
+	private Country convertePais(String pais) {
+		switch (pais) {
+		case "BR":
+			return Country.BRAZIL;
+
+		case "USA":
+			return Country.UNITED_STATES;
+
+		case "UK":
+			return Country.UNITED_KINGDOM;
+
+		default:
+			return Country.BRAZIL;
+		}
 	}
 
 	public HourlyWeatherForecast getHourlyWeatherForecastByCidadeId(Long cidadeId) {

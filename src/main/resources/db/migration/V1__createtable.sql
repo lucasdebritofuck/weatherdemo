@@ -1,0 +1,15 @@
+CREATE TABLE cidade (
+	id serial NOT NULL,
+	nome varchar(60) NULL,
+	weather_id int4 NOT NULL,
+	pais varchar(60) NULL,
+	CONSTRAINT cidade_pk PRIMARY KEY (id)
+);
+
+CREATE SEQUENCE seq_id
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 9223372036854775807
+	START 1
+	CACHE 1
+	NO CYCLE;

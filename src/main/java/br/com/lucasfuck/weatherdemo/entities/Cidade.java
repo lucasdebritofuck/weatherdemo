@@ -21,13 +21,7 @@ public class Cidade {
 	private String nome;
 
 	@Column
-	private String uf;
-
-	@Column
 	private String pais;
-
-	@Column
-	private String cep;
 
 	@Column(nullable = false)
 	private Long weatherId;
@@ -48,28 +42,12 @@ public class Cidade {
 		this.nome = nome;
 	}
 
-	public String getCep() {
-		return cep;
-	}
-
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
-
 	public Long getWeatherId() {
 		return weatherId;
 	}
 
 	public void setWeatherId(Long weatherId) {
 		this.weatherId = weatherId;
-	}
-
-	public String getUf() {
-		return uf;
-	}
-
-	public void setUf(String uf) {
-		this.uf = uf;
 	}
 
 	public String getPais() {
