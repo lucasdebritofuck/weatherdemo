@@ -1,6 +1,6 @@
 # weatherdemo-backend
 
-Projeto back-end Java utilizando framework Spring afim de consumir APIs OpenWeatherMap.
+Projeto back-end Java utilizando framework Spring a fim de consumir APIs OpenWeatherMap.
 
 # Pré-requisitos
 
@@ -34,15 +34,15 @@ Postgres 11
 
 - Toda implementação/regras/validação são feitos nos respectivos Services.
 
-- Importado biblioteca externa da OWM afim de facilitar as chamadas as suas APIs, no qual já está definido o que está disponível para uma key gratuito ou paga.
+- Importado biblioteca externa da OWM a fim de facilitar as chamadas as suas APIs, no qual já está definido o que está disponível para uma key gratuito ou paga.
 
 - Os scripts de migração se encontram na pasta default do Flyway, /weatherdemo/src/main/resources/db/migration.
 
 - Há uma limitação intencional de campos na entidade Cidade e de países a ser utilizados. BR, UK ou USA.
-	- Isso se deve ao fato de que, apesar da OWM oferecer suporte a pesquisa por ZIP code, o mesmo funciona por default para USA. Se eu permitir utilizar ZIP code, deveria então obrigar informar o país, depois criando um Converter para a classe Country exigida afim de validar o que for informado.
+	- Isso se deve ao fato de que, apesar da OWM oferecer suporte a pesquisa por ZIP code, o mesmo funciona por default para USA. Se eu permitir utilizar ZIP code, deveria então obrigar informar o país, depois criando um Converter para a classe Country exigida a fim de validar o que for informado.
 	- O estado também foi deixado de lado por estar disponível apenas para USA.
 
 - Utilizando biblioteca do Apache Commons.
 
-- Foi criado um teste unitário afim de testar inclusão de cidade inválida.
+- Foi criado um teste unitário a fim de testar inclusão de cidade inválida.
 
